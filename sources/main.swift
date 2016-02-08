@@ -5,18 +5,20 @@ let app = Blackfish()
 
 // MARK: Paths
 app.get("/") { request, response in
-  print("Request: \(request)")
-  print("Params: \(request.parameters)")
-  print("Data: \(request.data)")
-  print("Method: \(request.method)")
-  print("Cookies: \(request.cookies)")
-  print("Session: \(request.session)")
+    let dictionary = [
+      "stuff": "Tester",
+      "middle": "Vertex will allow you to <span>connect, interact</span> and <span>share</span> in a whole new way"
+    ]
 
-  response.render("html/index.html")
+    response.send(text: getTemplate(dictionary))
 }
 
 app.post("/stuff") { request, response in
-  response.send(text: "Stuff \(request.data)")
+  let context = [
+    "middle": "\(request.data)"
+  ]
+
+  response.send(text: getTemplate(context))
 }
 
 // MARK: Listen
