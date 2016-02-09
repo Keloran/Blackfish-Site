@@ -5,12 +5,14 @@ let app = Blackfish()
 
 // MARK: Paths
 app.get("/") { request, response in
-    let dictionary = [
-      "stuff": "Tester",
-      "middle": "Vertex will allow you to <span>connect, interact</span> and <span>share</span> in a whole new way"
-    ]
+  let dictionary = [
+    "stuff": "Tester",
+    "middle": "Vertex will allow you to <span>connect, interact</span> and <span>share</span> in a whole new way"
+  ]
 
-    response.send(text: getTemplate(dictionary))
+  print("Response: \(response.status)")
+
+  response.send(text: getTemplate(dictionary))
 }
 
 app.post("/stuff") { request, response in
@@ -23,7 +25,7 @@ app.post("/stuff") { request, response in
 
 // MARK: Listen
 app.listen(port: 80) { error in
-  if error == nil {
-    print("Listening")
+  if error != nil {
+    print("Error: \(error)")
   }
 }
