@@ -18,22 +18,27 @@ func getTemplate(context: Context, file: String) -> String? {
 
 // MARK: Paths
 app.get("/") { request, response in
-    let context = Context(dictionary: [
-        "stuff": "Tester"
-      ]
-    );
+  let dictionary = [
+    "stuff": "Tester",
+    "middle": "Vertex will allow you to <span>connect, interact</span> and <span>share</span> in a whole new way"
+  ]
 
-    guard let render = getTemplate(context, file: "Resources/Templates/index.mustache") else { response.send(text: "Error") }
-    response.send(text: render)
+  print("Response: \(response.status)")
+
+  response.send(text: getTemplate(dictionary))
 }
 
 app.post("/stuff") { request, response in
-  response.send(text: "Stuff \(request.data)")
+  let context = [
+    "middle": "\(request.data)"
+  ]
+
+  response.send(text: getTemplate(context))
 }
 
 // MARK: Listen
 app.listen(port: 80) { error in
-  if error == nil {
-    print("Listening")
+  if error != nil {
+    print("Error: \(error)")
   }
 }

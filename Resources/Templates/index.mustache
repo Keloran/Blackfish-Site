@@ -73,8 +73,8 @@
                 iPhone, Andriod and web. Lorem ipsum dolor sit amet,
                 consectetur adipiscing elit. Lorem ipsum dolor sit amet,
                 consectetur adipiscing elit </p>
-                <form>
-                  <input type="text" name="email" value="Your email" id="emailInputSlider" style="margin-right:0px" /><br/>
+                <form method="post" action="/stuff">
+                  <input type="text" name="email" placeholder="Your email" id="emailInputSlider" style="margin-right:0px" /><br/>
                   <input type="submit" name="submit" value="Start Your Free Trial" class="buttonSmall" id="buttonSmallSlider" />
                 </form>
               </div>
@@ -103,7 +103,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <h2>Vertex will allow you to <span>connect, interact</span> and <span>share</span> in a whole new way</h2>
+              <h2>{% include "content.mustache" %}</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras amet rhoncus tortor. Phasellus in auctor tellus. Pellentesque laoreet, eros at, iaculis massa. </p>
             </div>
           </div>
