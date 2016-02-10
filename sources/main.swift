@@ -2,6 +2,7 @@ import Blackfish
 
 // MARK: Start App
 let app = Blackfish()
+let sql = SQLWrapper()
 
 // MARK: Paths
 app.get("/") { request, response in
@@ -11,6 +12,8 @@ app.get("/") { request, response in
   ]
 
   print("Response: \(response.status)")
+
+  sql.connect("tester.db")
 
   response.send(text: getTemplate(dictionary))
 }
@@ -27,5 +30,7 @@ app.post("/stuff") { request, response in
 app.listen(port: 80) { error in
   if error != nil {
     print("Error: \(error)")
+  } else {
+    print("Listening on port: 80")
   }
 }
