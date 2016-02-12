@@ -2,7 +2,6 @@ import Blackfish
 
 // MARK: Start App
 let app = Blackfish()
-let sql = SQLWrapper()
 
 // MARK: Paths
 app.get("/") { request, response in
@@ -12,8 +11,6 @@ app.get("/") { request, response in
   ]
 
   print("Response: \(response.status)")
-
-  sql.connect("tester.db")
 
   response.send(text: getTemplate(dictionary))
 }
