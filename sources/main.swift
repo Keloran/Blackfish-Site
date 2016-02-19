@@ -1,33 +1,23 @@
+import Foundation
+
 import Blackfish
+import BlackfishStencil
 
 // MARK: Start App
 let app = Blackfish()
 
-// MARK: Paths
-app.get("/") { request, response in
-  let dictionary = [
-    "stuff": "Tester",
-    "middle": "Vertex will allow you to <span>connect, interact</span> and <span>share</span> in a whole new way"
-  ]
+// MARK: Renderer
+app.use(renderer: StencilRenderer(), ext: ".mustache")
 
-  print("Response: \(response.status)")
-
-  response.send(text: getTemplate(dictionary))
-}
-
-app.post("/stuff") { request, response in
-  let context = [
-    "middle": "\(request.data)"
-  ]
-
-  response.send(text: getTemplate(context))
-}
+// MARK: Routes
+app.use(path: "/", controller: IndexController())
+//app.use(path: "/test", controller: TestController())
 
 // MARK: Listen
 app.listen(port: 80) { error in
   if error != nil {
     print("Error: \(error)")
   } else {
-    print("Listening on port: 80")
+    print("Listening on port: \(app.port)")
   }
 }

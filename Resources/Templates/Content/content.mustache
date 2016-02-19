@@ -1,0 +1,53 @@
+<!-- Content Dependent Start -->
+  <!-- Features Start -->
+  {% if featuresPage %}
+    {% include "Templates/Content/features.mustache" %}
+  {% endif %}
+  <!-- Features End -->
+
+  <!-- Screenshots Start -->
+  {% if screenshotPage %}
+    {% include "Templates/Content/screenshots.mustache" %}
+  {% endif %}
+  <!-- Screenshots End -->
+
+  <!-- How It Works Start -->
+  {% if howItWorksPage %}
+    {% include "Templates/Content/how_it_works.mustache" %}
+  {% endif %}
+  <!-- How It Works End -->
+
+  <!-- Pricing Start -->
+  {% if pricingPage %}
+    {% include "Templates/Content/pricing.mustache" %}
+  {% endif %}
+  <!-- Pricing End -->
+
+  <!-- Start Testimonials -->
+  {% if testimonialsPage %}
+    {% include "Templates/Content/testimonials.mustache" %}
+  {% endif %}
+  <!-- END Testimonials -->
+
+  <!-- Start faq-->
+  {% if faqPage %}
+    {% include "Templates/Content/faq.mustache" %}
+  {% endif %}
+  <!-- END Faq -->
+
+  <!-- Start Our Team -->
+  {% if teamPage %}
+    {% include "Templates/Content/team.mustache" %}
+  {% endif %}
+  <!-- END Our team -->
+
+  <!-- Start Contact -->
+  {% if contactPage %}
+    {% include "Templates/Content/contact.mustache" %}
+  {% endif %}
+  <!-- END Contact -->
+<!-- Content Dependent End -->
+
+<!-- Promo box Start -->
+{% include "Templates/promobox.mustache" %}
+<!-- Promo box End-->
