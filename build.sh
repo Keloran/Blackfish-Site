@@ -10,13 +10,19 @@ cat << EOF
   OPTIONS:
     -h This message
     -c Clean the packages
+    -b Clean build
 EOF
+}
+
+deleteBuild()
+{
+  rm -rf .build
 }
 
 deletePackages()
 {
     rm -rf Packages
-    rm -rf .build
+    deleteBuild
 }
 
 buildIt()
@@ -33,11 +39,14 @@ runIt()
   fi
 }
 
-while getopts ":hc" OPTION; do
+while getopts ":hcb" OPTION; do
   case $OPTION in
     h)
       usage
       exit
+      ;;
+    b)
+      deleteBuild
       ;;
     c)
       deletePackages

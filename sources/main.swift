@@ -11,7 +11,6 @@ app.use(renderer: StencilRenderer(), ext: ".mustache")
 
 // MARK: Routes
 app.use(path: "/", controller: IndexController())
-//app.use(path: "/test", controller: TestController())
 
 // MARK: Listen
 app.listen(port: 80) { error in
